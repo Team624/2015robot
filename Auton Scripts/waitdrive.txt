@@ -1,0 +1,2 @@
+wait maxTime=5000 
+drive x=0 y=0 heading=0 maxTime=5000 
