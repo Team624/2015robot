@@ -13,20 +13,24 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Sim Support Files" Type="Folder">
-			<Item Name="FRC SimulatedRSC" Type="Folder">
-				<Item Name="ive" Type="Folder">
-					<Item Name="4in Perf Wheel.ive" Type="Document" URL="../FRC SimulatedRSC/ive/4in Perf Wheel.ive"/>
-					<Item Name="AXIS M1011.ive" Type="Document" URL="../FRC SimulatedRSC/ive/AXIS M1011.ive"/>
-					<Item Name="Devantech SRF05.ive" Type="Document" URL="../FRC SimulatedRSC/ive/Devantech SRF05.ive"/>
-					<Item Name="FRC - Body.ive" Type="Document" URL="../FRC SimulatedRSC/ive/FRC - Body.ive"/>
-					<Item Name="Honeywell HMC6343.ive" Type="Document" URL="../FRC SimulatedRSC/ive/Honeywell HMC6343.ive"/>
-					<Item Name="Sparkfun Atomic IMU.ive" Type="Document" URL="../FRC SimulatedRSC/ive/Sparkfun Atomic IMU.ive"/>
-				</Item>
-			</Item>
-			<Item Name="FRC Simulated.xml" Type="Document" URL="../FRC Simulated.xml"/>
+		<Item Name="PC Test Code" Type="Folder" URL="../PC Test Code">
+			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="Dependencies" Type="Dependencies"/>
+		<Item Name="Dependencies" Type="Dependencies">
+			<Item Name="vi.lib" Type="Folder">
+				<Item Name="NI_PID_pid.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/control/pid/NI_PID_pid.lvlib"/>
+			</Item>
+			<Item Name="Elevator Presets.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Presets.ctl"/>
+			<Item Name="Elevator Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Command.ctl"/>
+			<Item Name="Auto Elevator Logic.vi" Type="VI" URL="../Robot Code/Elevator/Auto Elevator Logic.vi"/>
+			<Item Name="Elevator State.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator State.ctl"/>
+			<Item Name="Choose Elevator Load Position.vi" Type="VI" URL="../Robot Code/Elevator/Choose Elevator Load Position.vi"/>
+			<Item Name="Change Detect String.vi" Type="VI" URL="../Common Code/Change Detect String.vi"/>
+			<Item Name="Change Detect Int.vi" Type="VI" URL="../Common Code/Change Detect Int.vi"/>
+			<Item Name="Change Detect Double.vi" Type="VI" URL="../Common Code/Change Detect Double.vi"/>
+			<Item Name="Change Detect Boolean.vi" Type="VI" URL="../Common Code/Change Detect Boolean.vi"/>
+			<Item Name="Change Detect.vi" Type="VI" URL="../Common Code/Change Detect.vi"/>
+		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
 	<Item Name="Target" Type="RT myRIO">
