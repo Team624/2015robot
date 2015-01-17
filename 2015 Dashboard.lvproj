@@ -21,6 +21,7 @@
 		<Item Name="Common Code" Type="Folder" URL="../Common Code">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
+		<Item Name="Auto Roller Info.ctl" Type="VI" URL="../Robot Code/Rollers/Auto Roller Info.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
@@ -190,6 +191,7 @@
 			<Item Name="Drivetrain Mode.ctl" Type="VI" URL="../Robot Code/Drivetrain Code/Drivetrain Mode.ctl"/>
 			<Item Name="commandCluster.ctl" Type="VI" URL="../Robot Code/Autonomous/commandCluster.ctl"/>
 			<Item Name="TargetType.ctl" Type="VI" URL="../../../../../Program Files (x86)/National Instruments/LabVIEW 2014/examples/FRC/roboRIO/Vision/2014 Target Detection/TargetType.ctl"/>
+			<Item Name="Auto Roller Commands.ctl" Type="VI" URL="../Robot Code/Rollers/Auto Roller Commands.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="FRC_Dashboard" Type="EXE">
