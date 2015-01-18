@@ -21,6 +21,7 @@
 		<Item Name="Common Code" Type="Folder" URL="../Common Code">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
+		<Item Name="Detect Intake Object.vi" Type="VI" URL="../Robot Code/Vision/Detect Intake Object.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
@@ -195,6 +196,7 @@
 			<Item Name="Drivetrain Mode.ctl" Type="VI" URL="../Robot Code/Drivetrain Code/Drivetrain Mode.ctl"/>
 			<Item Name="Elevator Control Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Control Command.ctl"/>
 			<Item Name="Elevator Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Command.ctl"/>
+			<Item Name="Auto Roller Commands.ctl" Type="VI" URL="../Robot Code/Rollers/Auto Roller Commands.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="FRC_Dashboard" Type="EXE">
