@@ -19,7 +19,6 @@ roboRIO to Arduino Byte Naming List
 #define MODE_TELEOP 3
 
 volatile uint8_t gameState = MODE_UNKNOWN;
-//volatile uint8_t robotState = STATE_UNKNOWN;
 volatile uint8_t alliance = UNKNOWN_ALLIANCE;
 volatile uint8_t totes = 2;
 volatile uint8_t bins = 1;
@@ -39,14 +38,7 @@ void getPackets(int numBytes)
 	{
 		newData=true;
 	}
-	/*
-	uint8_t oldRobotState = robotState;
-	robotState = Wire.read();
-	if(robotState != oldRobotState)
-	{
-		newData=true;
-	}
-	*/
+	
 	alliance = Wire.read();
 	
 	uint8_t oldtotes = totes;
