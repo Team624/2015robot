@@ -197,6 +197,7 @@
 			<Item Name="Elevator Control Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Control Command.ctl"/>
 			<Item Name="Elevator Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Command.ctl"/>
 			<Item Name="Auto Roller Commands.ctl" Type="VI" URL="../Robot Code/Rollers/Auto Roller Commands.ctl"/>
+			<Item Name="TargetType.ctl" Type="VI" URL="../../../../../../Program Files (x86)/National Instruments/LabVIEW 2014/examples/FRC/roboRIO/Vision/2014 Target Detection/TargetType.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="FRC_Dashboard" Type="EXE">
