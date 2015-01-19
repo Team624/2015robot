@@ -188,9 +188,6 @@
 			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
 			<Item Name="commandCluster.ctl" Type="VI" URL="../Robot Code/Autonomous/commandCluster.ctl"/>
 			<Item Name="TargetType.ctl" Type="VI" URL="../../../../../Program Files (x86)/National Instruments/LabVIEW 2014/examples/FRC/roboRIO/Vision/2014 Target Detection/TargetType.ctl"/>
-			<Item Name="Elevator DB Control.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator DB Control.ctl"/>
-			<Item Name="Elevator Status.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Status.ctl"/>
-			<Item Name="Elevator State.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator State.ctl"/>
 			<Item Name="Robot Global Data.vi" Type="VI" URL="../Robot Code/Robot Global Data.vi"/>
 			<Item Name="Drivetrain Control.ctl" Type="VI" URL="../Robot Code/Drivetrain Code/Drivetrain Control.ctl"/>
 			<Item Name="Drivetrain Mode.ctl" Type="VI" URL="../Robot Code/Drivetrain Code/Drivetrain Mode.ctl"/>

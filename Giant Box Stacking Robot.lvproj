@@ -265,7 +265,6 @@
 			<Item Name="Elevator Presets.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Presets.ctl"/>
 			<Item Name="Elevator Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Command.ctl"/>
 			<Item Name="Auto Elevator Logic.vi" Type="VI" URL="../Robot Code/Elevator/Auto Elevator Logic.vi"/>
-			<Item Name="Elevator State.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator State.ctl"/>
 			<Item Name="Choose Elevator Load Position.vi" Type="VI" URL="../Robot Code/Elevator/Choose Elevator Load Position.vi"/>
 			<Item Name="Change Detect String.vi" Type="VI" URL="../Common Code/Change Detect String.vi"/>
 			<Item Name="Change Detect Int.vi" Type="VI" URL="../Common Code/Change Detect Int.vi"/>
@@ -290,6 +289,7 @@
 			<Item Name="FRC_NetworkCommunication.dll" Type="Document" URL="FRC_NetworkCommunication.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="Elevator State.ctl" Type="VI" URL="../Common Code/Elevator State.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
