@@ -1,12 +1,11 @@
 /*
 roboRIO to Arduino Byte Naming List
 0 - Game State (teleop, auton, unknown)
-1 - Robot State (Unknown, Disabled, Auto, Teleop)
-2 - Alliance
-3 - Tote Count
-4 - Bin Count
-5 - Elevator Height
-6 - Strafe?
+1 - Alliance
+2 - Tote Count
+3 - Bin Count
+4 - Elevator Height
+5 - Unload?
 */
 
 #define RED_ALLIANCE 0
@@ -20,12 +19,14 @@ roboRIO to Arduino Byte Naming List
 
 volatile uint8_t gameState = MODE_UNKNOWN;
 volatile uint8_t alliance = UNKNOWN_ALLIANCE;
-volatile uint8_t totes = 2;
+volatile uint8_t totes = 4;
 volatile uint8_t bins = 1;
-volatile uint8_t rollers = 0;
+//volatile uint8_t rollers = 0;
 volatile uint8_t elevator = 0;
-volatile uint8_t omni = 0;
-volatile bool newData = false;
+volatile uint8_t unload = 0;
+volatile bool newData =false;
+volatile bool newTote = true;
+volatile bool newBin = false;
 
 void getPackets(int numBytes)
 {
@@ -46,6 +47,10 @@ void getPackets(int numBytes)
 	if(totes != oldtotes)
 	{
 		newData=true;
+		if(totes>oldtotes)
+		{
+			newTote=true;
+		}
 	}
 	
 	uint8_t oldbins = bins;
@@ -53,10 +58,20 @@ void getPackets(int numBytes)
 	if(bins != oldbins)
 	{
 		newData=true;
+		if(bins>oldbins)
+		{
+			newBin=true;
+		}
 	}
 	
-	rollers = Wire.read();
+	//rollers = Wire.read();
 	elevator = Wire.read();
-	omni = Wire.read();
+	
+	uint8_t oldunload = unload;
+	unload = Wire.read();
+	if(unload != oldunload)
+	{
+		newData=true;
+	}
 	//fieldPos = Wire.read();
 }

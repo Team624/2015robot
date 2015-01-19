@@ -24,11 +24,56 @@ void loop() {
 	//bouncelaser();
 	//strobe();
 	//strobepulse();
-	//toteCount();
+//	toteCount();
+ /*
+if(newData)
+{
+	if(gameState==MODE_TELEOP)
+	{
+		if(unload==0)
+		{
+			if(newTote)
+			{
+				newTote=addTote();
+			}
+			else if(newBin)
+			{
+				newBin=addBin();
+			}
+			else
+			{
+				toteCount();
+			}
+		}
+		else
+		{
+			
+		}
+	}
+	else if(gameState==MODE_AUTO)
+	{
+		
+	}
+	else if(gameState==MODE_DISABLED)
+	{
+		strobepulse();
+	}
+	else
+	{
+		rainbow(50);
+	}
+	
+	newData=false;
+}
+
+ */
 	//win();
-	scanner();
+	//scanner();
 	//sixtwofour();
-	//rainbow(50);
+	
+	
+	rainbow(10);
+	//rainbowlaser();
 }
 
 void rainbow(uint8_t wait) {
@@ -59,6 +104,35 @@ void laser()
 		delay(15);
 	}
 	
+}
+
+void rainbowlaser()
+{
+	uint32_t ii, c, w, r,o,y,g,b,i,v;
+	r=strip.Color(255,0,0);
+	o=strip.Color(255,128,0);
+	y=strip.Color(255,255,0);
+	
+	g=strip.Color(0,255,0);
+	
+	b=strip.Color(0,0,255);
+	ii=strip.Color(128,0,255);
+	v=strip.Color(255,0,255);
+	
+	w=7;
+	for(i=0;i<(strip.numPixels()+w);i++)
+	{
+		strip.setPixelColor(i,r);
+		strip.setPixelColor(i-1,o);
+		strip.setPixelColor(i-2,y);
+		strip.setPixelColor(i-3,g);
+		strip.setPixelColor(i-4,b);
+		strip.setPixelColor(i-5,ii);
+		strip.setPixelColor(i-6,v);
+		strip.setPixelColor(i-w,0);
+		strip.show();
+		delay(15);
+	}
 }
 
 void bouncelaser()
@@ -130,6 +204,7 @@ void strobe()
 	delay(300);
 	strip.show();
 }
+
 
 void strobepulse()
 {
@@ -206,31 +281,102 @@ void win()
 
 void scanner()
 {
-	uint16_t i, c, w, flag;
+	uint16_t i, c, w;
+	uint8_t distance,divisor,pulseHead;
 	c=strip.Color(0,255,0);
-	fillStrip(strip.Color(0,10,0), 255);
-	w=16;
-	flag=95;
-	for(i=0;i<(strip.numPixels()+w);i++)
+	pulseHead=0;
+	while(pulseHead<=strip.numPixels())
+	{
+		for(uint8_t i=0; i<strip.numPixels(); ++i) 
+		{
+			uint8_t divisor = 0;
+			uint8_t distance = abs(i - pulseHead);
+			if      (distance <= 2) divisor = 1;
+			else if (distance <= 4) divisor = 2;
+			else if (distance <= 6) divisor = 4;
+			else if (distance <= 8) divisor = 6;
+			else if (distance <= 10) divisor = 8;
+			else if (distance <= 12) divisor = 10;
+			else if (distance <= 14) divisor = 12;
+			else divisor = 16; 
+			strip.setPixelColor(i, 0, 255/divisor, 0);
+		}
+		pulseHead++;
+		strip.show();
+		delay(100);
+	}
+	
+	
+	
+}
+
+bool addTote()
+{
+	uint16_t i,ii,iii, c, cc;
+	uint8_t w, w_n, b;
+	c=strip.Color(0,255,0);
+	cc=strip.Color(255,255,0);
+	//i=0;
+	w=(totes-1)*17;
+	w_n = totes*17;
+	for(i=0; i<w; i++)
 	{
 		strip.setPixelColor(i,strip.Color(0,255,0));
-		for(int it=0;it<w;it++)
-		{
-			//strip.setBrightness(flag);
-			
-			if(it<w/2)
-			{
-				flag+=20;
-			}
-			else
-			{
-				flag-=20;
-			}
-		}
-		strip.setPixelColor(i-w,strip.Color(0,10,0));
-		//strip.setPixelColor(i+5,0);
-		strip.show();
-		delay(1000);
 	}
+	b=bins*45;
+	for(ii=w; ii<(w+b); ii++)
+	{
+		strip.setPixelColor(ii,strip.Color(255,255,0));
+	}
+	strip.show();
+	for(iii=(w+b); iii<(w_n+b);iii++)
+	{
+		strip.setPixelColor(iii,strip.Color(255,255,0));
+		strip.setPixelColor(iii-b,0);
+		strip.setPixelColor(iii-b,strip.Color(0,255,0));
+		strip.setPixelColor(iii-b-w_n,0);
+		strip.show();
+		delay(50);
+	}
+	
+	//strip.setPixelColor(w,c);
+	//strip.setPixelColor(0,0);
+	//strip.setPixelColor(i+5,0);
+	return false;
+}
+
+bool addBin()
+{
+	uint16_t i,ii,iii, c, cc;
+	uint8_t w, b_n, b;
+	c=strip.Color(0,255,0);
+	cc=strip.Color(255,255,0);
+	//i=0;
+	w = totes*17;
+	for(i=0; i<w; i++)
+	{
+		strip.setPixelColor(i,strip.Color(0,255,0));
+	}
+	b=(bins-1)*45;
+	b_n = bins*1;
+	for(ii=w; ii<(w+b); ii++)
+	{
+		strip.setPixelColor(ii,strip.Color(255,255,0));
+	}
+	strip.show();
+	for(iii=(w+b); iii<(b_n+w);iii++)
+	{
+		strip.setPixelColor(iii,strip.Color(255,255,0));
+		strip.setPixelColor(iii-b_n,0);
+		strip.setPixelColor(iii-b_n,strip.Color(0,255,0));
+		strip.setPixelColor(iii-b_n-w,0);
+		strip.show();
+		delay(50);
+	}
+	
+	//strip.setPixelColor(w,c);
+	//strip.setPixelColor(0,0);
+	//strip.setPixelColor(i+5,0);
+	return false;
 	
 }
