@@ -23,11 +23,11 @@ void loop() {
 	//laser();
 	//bouncelaser();
 	//strobe();
-	strobepulse();
+	//strobepulse();
 //	toteCount();
- /*
-if(newData)
-{
+// /*
+//if(newData)
+//{
 	if(gameState==MODE_TELEOP)
 	{
 		if(unload==0)
@@ -47,26 +47,29 @@ if(newData)
 		}
 		else
 		{
-			
+			bouncelaser();
 		}
 	}
 	else if(gameState==MODE_AUTO)
 	{
-		pixelate();
+		//pixelate();
+		strobepulse();
 	}
 	else if(gameState==MODE_DISABLED)
 	{
-		strobepulse();
+		//strobepulse();
+		pixelate();
+		//bouncelaser();
 	}
 	else
 	{
 		rainbow(50);
 	}
 	
-	newData=false;
-}
+//	newData=false;
+//}
 
- */
+// */
 	//win();
 	//scanner();
 	//sixtwofour();
@@ -142,9 +145,9 @@ void bouncelaser()
 	uint16_t i, c, w;
 	c=strip.Color(0,255,0);
 	
-	w=7;
+	w=12;
 	
-	for(i=0;i<(strip.numPixels()+(w-3));i++)
+	for(i=0;i<(strip.numPixels()+(w-6));i++)
 	{
 		strip.setPixelColor(i,c);
 		strip.setPixelColor(i-w,0);
@@ -153,7 +156,7 @@ void bouncelaser()
 		delay(15);
 	}
 	
-	for(i=strip.numPixels()-(w-3);(i+3)>0;i--)
+	for(i=strip.numPixels()-(w-6);(i+6)>0;i--)
 	{
 		strip.setPixelColor(i,c);
 		strip.setPixelColor(i+w,0);
@@ -166,7 +169,7 @@ void bouncelaser()
 
 void toteCount()
 {
-	uint16_t i,ii, c, cc;
+	uint16_t i,ii,iii, c, cc;
 	uint8_t w, b;
 	c=strip.Color(0,255,0);
 	cc=strip.Color(255,255,0);
@@ -180,6 +183,10 @@ void toteCount()
 	for(ii=w; ii<(w+b); ii++)
 	{
 		strip.setPixelColor(ii,strip.Color(255,255,0));
+	}
+	for(iii=(w+b);iii<strip.numPixels();iii++)
+	{
+		strip.setPixelColor(iii,strip.Color(0,0,0));
 	}
 	//strip.setPixelColor(w,c);
 	//strip.setPixelColor(0,0);
@@ -210,8 +217,22 @@ void strobe()
 
 void strobepulse()
 {
-	uint16_t i, c;
+	uint32_t i, c;
+	
 	c=strip.Color(0,255,0);
+	
+	if(alliance==RED_ALLIANCE)
+	{
+		c=strip.Color(255,0,0);
+	}
+	else if(alliance==BLUE_ALLIANCE)
+	{
+		c=strip.Color(0,0,255);
+	}
+	else
+	{
+		c=strip.Color(0,255,0);
+	}
 	
 	for(i=0;i<=255;i+=5)
 	{
@@ -225,7 +246,7 @@ void strobepulse()
 		fillStrip(c, i);
 		strip.show();
 		delay(10);
-	}
+	} 
 	
 }
 void sixtwofour()
@@ -261,20 +282,20 @@ void win()
 	
 	for(i=0;i<(strip.numPixels()+1+3+3+3+3+5+1+3+1+5+3+3+1);i++)
 	{
-		strip.setPixelColor(i,u);
-		strip.setPixelColor(i-1,0); //dot
-		strip.setPixelColor(i-1-3,u);//space
-		strip.setPixelColor(i-1-3-3,0);//dash
-		strip.setPixelColor(i-1-3-3-3,u);//space
-		strip.setPixelColor(i-1-3-3-3-3,0);//dash
-		strip.setPixelColor(i-1-3-3-3-3-5,s);//space W
-		strip.setPixelColor(i-1-3-3-3-3-5-1,0);//dot
-		strip.setPixelColor(i-1-3-3-3-3-5-1-3,s);//space
-		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1,0);//dot
-		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5,a);//space I
-		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5-3,0);//dash
-		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5-3-3,a);//space
-		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5-3-3-1,0);//dot N
+		strip.setPixelColor(i,u);//dot
+		strip.setPixelColor(i-1,0); //space
+		strip.setPixelColor(i-1-3,u);//dash
+		strip.setPixelColor(i-1-3-3,0);//space
+		strip.setPixelColor(i-1-3-3-3,u);//dash
+		strip.setPixelColor(i-1-3-3-3-3,0);//space W
+		strip.setPixelColor(i-1-3-3-3-3-5,s);//dot
+		strip.setPixelColor(i-1-3-3-3-3-5-1,0);//space
+		strip.setPixelColor(i-1-3-3-3-3-5-1-3,s);//dot
+		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1,0);//space I
+		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5,a);//dash
+		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5-3,0);//space
+		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5-3-3,a);//dot N
+		strip.setPixelColor(i-1-3-3-3-3-5-1-3-1-5-3-3-1,0);//space
 		//strip.setPixelColor(i+5,0);
 		strip.show();
 		delay(200);
@@ -386,7 +407,7 @@ bool addBin()
 
 void pixelate()
 {
-	uint8_t i, px, color;
+	uint8_t i, px,pxs, color;
 	uint32_t g, w, b,c;
 	g=strip.Color(0,255,0);
 	b=strip.Color(0,0,255);
@@ -395,25 +416,29 @@ void pixelate()
 	
 	
 	px = random(0,strip.numPixels());
+	pxs = random(0,strip.numPixels());
 	color = random(0,4);
 	if(color==0)
 	{
 		strip.setPixelColor(px,g);
+		strip.setPixelColor(pxs,g);
 	}
 	else if(color==1)
 	{
 		strip.setPixelColor(px,b);
+		strip.setPixelColor(pxs,b);
 	}
 	else if(color==2)
 	{
 		strip.setPixelColor(px,c);
-	}
+		strip.setPixelColor(pxs,c);
+	} 
 	else
 	{
 		strip.setPixelColor(px,w);
+		strip.setPixelColor(pxs,w);
 	}
 	
 	strip.show();
-	delay(10);
 	
 }
