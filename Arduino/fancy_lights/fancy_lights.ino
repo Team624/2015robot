@@ -23,7 +23,7 @@ void loop() {
 	//laser();
 	//bouncelaser();
 	//strobe();
-	//strobepulse();
+	strobepulse();
 //	toteCount();
  /*
 if(newData)
@@ -52,7 +52,7 @@ if(newData)
 	}
 	else if(gameState==MODE_AUTO)
 	{
-		
+		pixelate();
 	}
 	else if(gameState==MODE_DISABLED)
 	{
@@ -72,8 +72,10 @@ if(newData)
 	//sixtwofour();
 	
 	
-	rainbow(10);
+	//rainbow(10);
 	//rainbowlaser();
+	
+	//pixelate();
 }
 
 void rainbow(uint8_t wait) {
@@ -119,16 +121,16 @@ void rainbowlaser()
 	ii=strip.Color(128,0,255);
 	v=strip.Color(255,0,255);
 	
-	w=7;
+	w=12;
 	for(i=0;i<(strip.numPixels()+w);i++)
 	{
 		strip.setPixelColor(i,r);
-		strip.setPixelColor(i-1,o);
-		strip.setPixelColor(i-2,y);
-		strip.setPixelColor(i-3,g);
-		strip.setPixelColor(i-4,b);
-		strip.setPixelColor(i-5,ii);
-		strip.setPixelColor(i-6,v);
+		strip.setPixelColor(i-2,o);
+		strip.setPixelColor(i-4,y);
+		strip.setPixelColor(i-6,g);
+		strip.setPixelColor(i-8,b);
+		strip.setPixelColor(i-10,ii);
+		strip.setPixelColor(i-12,v);
 		strip.setPixelColor(i-w,0);
 		strip.show();
 		delay(15);
@@ -211,18 +213,18 @@ void strobepulse()
 	uint16_t i, c;
 	c=strip.Color(0,255,0);
 	
-	for(i=0;i<255;i+=5)
+	for(i=0;i<=255;i+=5)
 	{
 		fillStrip(c, i);
 		strip.show();
-		delay(15);
+		delay(10);
 	}
 	
 	for(i=255;i>0;i-=5)
 	{
 		fillStrip(c, i);
 		strip.show();
-		delay(15);
+		delay(10);
 	}
 	
 }
@@ -378,5 +380,40 @@ bool addBin()
 	//strip.setPixelColor(0,0);
 	//strip.setPixelColor(i+5,0);
 	return false;
+	
+}
+
+
+void pixelate()
+{
+	uint8_t i, px, color;
+	uint32_t g, w, b,c;
+	g=strip.Color(0,255,0);
+	b=strip.Color(0,0,255);
+	w=strip.Color(255,255,255);
+	c=strip.Color(0,0,0);
+	
+	
+	px = random(0,strip.numPixels());
+	color = random(0,4);
+	if(color==0)
+	{
+		strip.setPixelColor(px,g);
+	}
+	else if(color==1)
+	{
+		strip.setPixelColor(px,b);
+	}
+	else if(color==2)
+	{
+		strip.setPixelColor(px,c);
+	}
+	else
+	{
+		strip.setPixelColor(px,w);
+	}
+	
+	strip.show();
+	delay(10);
 	
 }
