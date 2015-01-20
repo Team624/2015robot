@@ -22,6 +22,7 @@
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
 		<Item Name="Detect Intake Object.vi" Type="VI" URL="../Robot Code/Vision/Detect Intake Object.vi"/>
+		<Item Name="Average 2D Array.vi" Type="VI" URL="../Robot Code/Vision/Average 2D Array.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
