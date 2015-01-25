@@ -207,6 +207,7 @@
 			<Item Name="Drivetrain Mode.ctl" Type="VI" URL="../Robot Code/Drivetrain Code/Drivetrain Mode.ctl"/>
 			<Item Name="Elevator Control Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Control Command.ctl"/>
 			<Item Name="Elevator Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Command.ctl"/>
+			<Item Name="Elevator Mode.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Mode.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="FRC_Dashboard" Type="EXE">
