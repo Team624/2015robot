@@ -21,6 +21,7 @@
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
 		<Item Name="Image Display.vi" Type="VI" URL="../Robot Code/Vision/Image Display.vi"/>
+		<Item Name="Pot Data.ctl" Type="VI" URL="../Robot Code/Sensors/Pot Data.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
@@ -201,6 +202,7 @@
 			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
 			<Item Name="TargetType.ctl" Type="VI" URL="../../../../../Program Files (x86)/National Instruments/LabVIEW 2014/examples/FRC/roboRIO/Vision/2014 Target Detection/TargetType.ctl"/>
 			<Item Name="Average 2D Array.vi" Type="VI" URL="../Robot Code/Vision/Average 2D Array.vi"/>
+			<Item Name="Really Real Manual Align.ctl" Type="VI" URL="../Robot Code/Rollers/Really Real Manual Align.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="624 2015 Dashboard" Type="EXE">
