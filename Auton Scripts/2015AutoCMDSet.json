@@ -16,7 +16,7 @@
       {"name":"y","id":1, "desc":"distance to drive (in feet) positive (+) is forwards, negative (-) is backwards  (Distances are from last encpder recet)"},
       {"name":"heading", "id":2, "desc":"angle to steer toward while driving (clockwise is positive, 0 = drive straight)"},
 	  {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"},
-	  {"name":"coast", "id":4, "desc":"coast through the endpoint (1=coast, 2=stop)"}
+	  {"name":"sync", "id":4, "desc":"sync driving with other actions (0=No, 1=Yes)"}
     ]
   },
   {
@@ -30,24 +30,47 @@
     ]
   },
   {
-    "name":"init",
+    "name":"set rollers",
     "id": 3,
-    "desc":"Transfers execution to the specified command index based on conditions",
+    "desc":"Sets Roller Mode, Motors, and Open/closed",
     "subs" : [
-		{"name":"id", "id":0,"desc":"For PID: 0=X_PID 1=Y_PID."},
-		{"name":"type", "id":1,"desc":"0=PID 1=Gyro Reset 2=Encoder Reset"},
-		{"name":"P","id":2, "desc": "Proportional Constant"},
-		{"name":"I","id":3, "desc": "Integral Constant"},
-		{"name":"D","id":4, "desc": "Derivative Constant"}
+		{"name":"mode", "id":0,"desc":"0=Auto, 1= Manual"},
+		{"name":"align", "id":1,"desc":"Determine Alignment (0=Idle, 1=In, 2=Out, 3=Left, 4=Right)"},
+		{"name":"closed","id":2, "desc": "Close the Rollers? (0=No, 1=Yes)"}
     ]
   },
   {
-    "name":"ToteDrive",
+    "name":"tote drive",
     "id": 4,
     "desc":"Transfers execution to the specified command index based on conditions",
     "subs" : [
 		{"name":"speed", "id":0,"desc": "How fast to go to the tote"},
-		{"name":"maxTime","id":3, "desc": "0 = forever"}
+		{"name":"maxTime","id":4, "desc": "0 = forever"}
     ]
+  },
+	{
+    "name":"wait for drive",
+    "id": 5,
+    "desc":"Waits until any driving completes",
+    "subs" : [
+		{"name":"drivecmd", "id":0,"desc": "Which Drive Command to wait for"}
+		]
+  },
+	{
+    "name":"store can",
+    "id": 5,
+    "desc":"Stores Can at Top of Elevator. Does not let go unless instructed to",
+    "subs" : [
+		{"name":"store", "id":0,"desc": "0=no, 1=yes"}
+		]
+  }
+	,
+	{
+    "name":"drop stack",
+    "id": 5,
+    "desc":"Drops Auto Stack",
+    "subs" : [
+		 {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
+		]
   }
 ]
