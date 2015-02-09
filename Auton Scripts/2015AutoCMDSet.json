@@ -13,8 +13,8 @@
     "desc":"drive forward/backward for the specified distance, steering toward the specified angle",
     "subs" : [
 	  {"name":"x", "id":0, "desc":"omni left/right distance(feet) positive(+) is right, negative(-) is left"},
-      {"name":"y","id":1, "desc":"distance to drive (in feet) positive (+) is forwards, negative (-) is backwards  (Distances are from last encpder recet)"},
-      {"name":"heading", "id":2, "desc":"angle to steer toward while driving (clockwise is positive, 0 = drive straight)"},
+      {"name":"y","id":1, "desc":"distance to drive (in feet) positive (+) is forwards, negative (-) is backwards  (Distances are from last encoder reset)"},
+      {"name":"heading", "id":2, "desc":"angle to steer toward while driving (clockwise is positive, 0 = straight)"},
 	  {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"},
 	  {"name":"sync", "id":4, "desc":"sync driving with other actions (0=No, 1=Yes)"}
     ]
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "name":"set rollers",
+    "name":"set_rollers",
     "id": 3,
     "desc":"Sets Roller Mode, Motors, and Open/closed",
     "subs" : [
@@ -40,7 +40,7 @@
     ]
   },
   {
-    "name":"tote drive",
+    "name":"tote_drive",
     "id": 4,
     "desc":"Transfers execution to the specified command index based on conditions",
     "subs" : [
@@ -49,7 +49,7 @@
     ]
   },
 	{
-    "name":"wait for drive",
+    "name":"wait_for_drive",
     "id": 5,
     "desc":"Waits until any driving completes",
     "subs" : [
@@ -57,20 +57,36 @@
 		]
   },
 	{
-    "name":"store can",
-    "id": 5,
+    "name":"store_can",
+    "id": 6,
     "desc":"Stores Can at Top of Elevator. Does not let go unless instructed to",
     "subs" : [
 		{"name":"store", "id":0,"desc": "0=no, 1=yes"}
 		]
-  }
-	,
+  },
 	{
-    "name":"drop stack",
-    "id": 5,
+    "name":"drop_stack",
+    "id": 7,
     "desc":"Drops Auto Stack",
     "subs" : [
 		 {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
 		]
-  }
+  },
+  {
+    "name":"pickup",
+    "id": 8,
+    "desc":"Picks Up a Tote",
+    "subs" : [
+		 {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
+		]
+  },
+{"alias":"no", "represents":0},
+{"alias":"yes", "represents":1},
+{"alias":"forever", "represents":0},
+{"alias":"straight", "represents":0},
+{"alias":"idle", "represents":0},
+{"alias":"in", "represents":1},
+{"alias":"out", "represents":2},
+{"alias":"left", "represents":3},
+{"alias":"right", "represents":4}
 ]
