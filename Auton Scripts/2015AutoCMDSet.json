@@ -45,15 +45,15 @@
     "desc":"Transfers execution to the specified command index based on conditions",
     "subs" : [
 		{"name":"speed", "id":0,"desc": "How fast to go to the tote"},
-		{"name":"maxTime","id":4, "desc": "0 = forever"}
+		{"name":"maxTime","id":3, "desc": "0 = forever"}
     ]
   },
 	{
     "name":"wait_for_drive",
     "id": 5,
-    "desc":"Waits until any driving completes",
+    "desc":"Waits until driving completes",
     "subs" : [
-		{"name":"drivecmd", "id":0,"desc": "Which Drive Command to wait for"}
+		{"name":"drivecmd", "id":0,"desc": "which drive command to wait for"}
 		]
   },
 	{
@@ -80,6 +80,24 @@
 		 {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
 		]
   },
+  {
+    "name":"set_elevator",
+    "id": 9,
+    "desc":"Sets Elevator Stuff",
+    "subs" : [
+		{"name":"mode","id":0,"desc":"0=auto, 1=manual"},
+		{"name":"command","id":0,"desc":"0=idle, 1=one_tote, 2=two_totes, 3=three_totes"}
+		]
+  },
+  {
+    "name":"wait_for",
+    "id": 10,
+    "desc":"Waits for a condition to be true",
+    "subs" : [
+			{"name":"condition","id":0,"desc":"1=one_tote, 2=two_totes, 3=three_totes"}
+		]
+  },
+  
 {"alias":"no", "represents":0},
 {"alias":"yes", "represents":1},
 {"alias":"forever", "represents":0},
@@ -88,5 +106,9 @@
 {"alias":"in", "represents":1},
 {"alias":"out", "represents":2},
 {"alias":"left", "represents":3},
-{"alias":"right", "represents":4}
+{"alias":"right", "represents":4},
+{"alias":"drive_complete", "represents":0},
+{"alias":"one_tote", "represents":1},
+{"alias":"two_totes", "represents":2},
+{"alias":"three_totes", "represents":3}
 ]
