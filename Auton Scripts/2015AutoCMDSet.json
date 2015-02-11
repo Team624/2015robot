@@ -36,7 +36,8 @@
     "subs" : [
 		{"name":"mode", "id":0,"desc":"0=Auto, 1= Manual"},
 		{"name":"align", "id":1,"desc":"Determine Alignment (0=Idle, 1=In, 2=Out, 3=Left, 4=Right)"},
-		{"name":"closed","id":2, "desc": "Close the Rollers? (0=No, 1=Yes)"}
+		{"name":"closed","id":2, "desc": "Close the Rollers? (0=No, 1=Yes)"},
+		{"name":"auto_cmd", "id":3,"desc":"Set Auto State (1=Grab, 0=Idle, 2=Eject)"}
     ]
   },
   {
@@ -110,5 +111,9 @@
 {"alias":"drive_complete", "represents":0},
 {"alias":"one_tote", "represents":1},
 {"alias":"two_totes", "represents":2},
-{"alias":"three_totes", "represents":3}
+{"alias":"three_totes", "represents":3},
+{"alias":"auto", "represents":0},
+{"alias":"manual", "represents":1},
+{"alias":"grab", "represents":1},
+{"alias":"eject", "represents":2}
 ]
