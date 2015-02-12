@@ -1,1 +1,1 @@
-﻿set_elevator mode=manual
+﻿set_elevator mode=auto command=one_tote
