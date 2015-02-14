@@ -1,1 +1,2 @@
-﻿drive y=3 x=0 heading=0 
+﻿set_elevator mode=manual
+drive y=3 x=0 heading=0 

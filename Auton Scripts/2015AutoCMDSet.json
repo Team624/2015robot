@@ -16,7 +16,7 @@
       {"name":"y","id":1, "desc":"distance to drive (in feet) positive (+) is forwards, negative (-) is backwards  (Distances are from last encoder reset)"},
       {"name":"heading", "id":2, "desc":"angle to steer toward while driving (clockwise is positive, 0 = straight)"},
 	  {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"},
-	  {"name":"sync", "id":4, "desc":"sync driving with other actions (0=No, 1=Yes)"}
+	  {"name":"async", "id":4, "desc":"Return immediately? (0=No, 1=Yes)"}
     ]
   },
   {
@@ -78,7 +78,8 @@
     "id": 8,
     "desc":"Picks Up a Tote",
     "subs" : [
-		 {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
+		 {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"},
+		 {"name":"hold_low", "id":2,"desc":"0 = no 1=yes"}, 
 		]
   },
   {
@@ -87,7 +88,8 @@
     "desc":"Sets Elevator Stuff",
     "subs" : [
 		{"name":"mode","id":0,"desc":"0=auto, 1=manual"},
-		{"name":"command","id":1,"desc":"0=idle, 1=one_tote, 2=two_totes, 3=three_totes"}
+		{"name":"command","id":1,"desc":"0=idle, 1=one_tote, 2=two_totes, 3=three_totes"},
+		{"name":"hold_low", "id":2,"desc":"0 = no 1=yes"}
 		]
   },
   {
@@ -95,10 +97,20 @@
     "id": 10,
     "desc":"Waits for a condition to be true",
     "subs" : [
-			{"name":"condition","id":2,"desc":"1=one_tote, 2=two_totes, 3=three_totes, 4=distance"},
+			{"name":"condition","id":2,"desc":"1=one_tote, 2=two_totes, 3=three_totes, 4=past_distance"},
 			{"name":"x","id":0,"desc":"amount of x distance to wait for"},
 			{"name":"y","id":1,"desc":"amount of y distance to wait for"},
 			{"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
+		]
+  },
+  {
+    "name":"set_drive",
+    "id": 11,
+    "desc":"Drives without distance PID, just using gyro",
+    "subs" : [
+			{"name":"x","id":0,"desc":"x speed"},
+			{"name":"y","id":1,"desc":"y speed"},
+			{"name":"heading","id":2,"desc":"gyro heading target"},
 		]
   },
   
