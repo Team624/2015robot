@@ -641,7 +641,8 @@ namespace Isotope
 				OptionsWindow _ow = new OptionsWindow();
 				getIndex();
 			
-				List<int> lines = getMeaningfulLines();//index all lines that do not start with comments
+				List<int> lines = getMeaningfulLines();
+				List<int> lins = getMeaninglessLines();//index all lines that do not start with comments
 				int totalLines = edits[_index].LineCount; //count total lines to read
 				int rows = getBiggestSubID()+1; //count subcommand rows
 				int inc = 0, ink = 0; //iteration variables for meaningful lines array
@@ -656,7 +657,7 @@ namespace Isotope
 				for(int fp=1;fp<=totalLines; fp++)
 				{
 					int mLines = 0;
-					if(fp != lines[ink])
+					if(fp == lins[ink])
 					{
 						int start = edits[_index].Document.GetLineByNumber(fp).Offset;
 						int leng = edits[_index].Document.GetLineByNumber(fp).EndOffset;
@@ -686,13 +687,11 @@ namespace Isotope
 				{
 					csv_out[r] = new string[lines.Count]; //create rows of csv
 				}
-				for(int i = 1; i <= totalLines; i++) // add commands
+				for(int i = 0; i < lines.Count; i++) // add commands
 				{
-					if(i == lines[inc]) // if the line is meaningful
-					{
 					   	//get the line offset (the document is a 0 indexed char array)
-					   	int off = edits[_index].Document.GetLineByNumber(i).Offset;
-					   	int leng = edits[_index].Document.GetLineByNumber(i).EndOffset;
+					   	int off = edits[_index].Document.GetLineByNumber(lines[i]).Offset;
+					   	int leng = edits[_index].Document.GetLineByNumber(lines[i]).EndOffset;
 					   	string line = "";
 					   	
 					   	//holds words and numbers for parsing
@@ -870,10 +869,7 @@ namespace Isotope
 							}
 							
 						}
-						
-						inc++; //go to the next meaningful line
-						
-					}
+					
 					
 				}
 				if(safe) // if no errors
@@ -955,6 +951,32 @@ namespace Isotope
 				}
 				
 				if(!(line.StartsWith("//")) && !(line.StartsWith(";")) && !(line.EndsWith(":")))
+				{
+					mLines.Add(i);
+				}
+			}
+			
+			return mLines;
+			
+		}
+		private List<int> getMeaninglessLines()
+		{
+			getIndex();
+			int totalLines = edits[_index].LineCount;
+			List<int> mLines = new List<int>();
+			
+			for(int i = 1; i<=totalLines; i++)
+			{
+				int off = edits[_index].Document.GetLineByNumber(i).Offset;
+				int leng = edits[_index].Document.GetLineByNumber(i).EndOffset;
+				string line = "";
+					   	
+				for(int u = off; u < leng; u++)
+				{
+					line+=edits[_index].Document.GetCharAt(u);
+				}
+				
+				if((line.StartsWith("//")) || (line.StartsWith(";")) || (line.EndsWith(":")))
 				{
 					mLines.Add(i);
 				}

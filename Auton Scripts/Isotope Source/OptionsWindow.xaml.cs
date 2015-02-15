@@ -110,6 +110,7 @@ namespace Isotope
 			save_wordlist(words);
 			save_aliases(oc_alias);
 			save_json_loaders(load_json, use_load_json);
+			Properties.RealSettings.Default.Save();
 			this.Close();
 		}
 		#endregion
@@ -459,8 +460,8 @@ namespace Isotope
             	catch (Exception ex)
             	{
             	    // Could not load the file - probably related to Windows file system permissions.
-            	    System.Windows.Forms.MessageBox.Show("Cannot load file: " + json.FileName.Substring(json.FileName.LastIndexOf('\\'))
-            	        + ". You may not have permission to read the file, or " +
+            	    System.Windows.Forms.MessageBox.Show("Cannot load file: " + json.FileName
+            	        + ". You may not have permission to read the file, it may not be selected yet, or " +
             	        "it may be corrupt.\n\nReported error: " + ex.Message);
             	}
 		}
