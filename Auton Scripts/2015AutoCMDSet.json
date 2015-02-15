@@ -93,7 +93,7 @@
   },
   {
     "name":"wait_for",
-    "id": 10,S
+    "id": 10,
     "desc":"Waits for a condition to be true",
     "subs" : [
 			{"name":"condition","id":2,"desc":"1=one_tote, 2=two_totes, 3=three_totes, 4=past_y_dist, 5=past_x_dist"},
