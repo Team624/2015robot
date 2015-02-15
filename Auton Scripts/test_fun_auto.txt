@@ -1,8 +1,8 @@
 ﻿set_count totes=1 can=0
 set_rollers mode=manual closed=yes align=right
-;drive y=6 async=1
-;wait_for condition=distance y=3
-;set_rollers mode=manual closed=no align=right
-;wait_for_drive
-;set_rollers mode=auto
-;pickup hold_low=yes
+drive y=6 async=1
+wait_for condition=distance y=3
+set_rollers mode=manual closed=no align=right
+wait_for_drive
+set_rollers mode=auto
+pickup hold_low=yes
