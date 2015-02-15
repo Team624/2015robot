@@ -654,14 +654,15 @@ namespace Isotope
 				
 				Dictionary<string, int> labels = new Dictionary<string, int>();
 				
-				for(int fp=1;fp<=totalLines; fp++)
+				//for(int fp=0;fp<lins.Count; fp++)
+				//{
+				foreach(int l in lins)
 				{
-					int mLines = 0;
-					if(fp == lins[ink])
-					{
-						int start = edits[_index].Document.GetLineByNumber(fp).Offset;
-						int leng = edits[_index].Document.GetLineByNumber(fp).EndOffset;
-						string line = "";
+					//int mLines = 0;
+					
+						int start = edits[_index].Document.GetLineByNumber(l).Offset;
+						int leng = edits[_index].Document.GetLineByNumber(l).EndOffset;
+						//string line = "";
 						if(edits[_index].Document.GetCharAt(leng-1) == ':')
 						{
 							string hold = "";
@@ -669,16 +670,12 @@ namespace Isotope
 							{
 								hold+=edits[_index].Document.GetCharAt(mg);
 							}
-							labels.Add(hold, mLines+2);
+							labels.Add(hold, l);
 							//label.Add(hold);
 							//label_ids.Add(fp+1);
 						}
 						ink++;
-					}
-					else
-					{
-						mLines++;
-					}
+					
 				}
 				
 				//jagged array for output
@@ -687,11 +684,14 @@ namespace Isotope
 				{
 					csv_out[r] = new string[lines.Count]; //create rows of csv
 				}
-				for(int i = 0; i < lines.Count; i++) // add commands
+				//for(int i = 0; i < lines.Count; i++) // add commands
+				//{
+				foreach(int ml in lines)
 				{
+					Console.WriteLine(ml.ToString());
 					   	//get the line offset (the document is a 0 indexed char array)
-					   	int off = edits[_index].Document.GetLineByNumber(lines[i]).Offset;
-					   	int leng = edits[_index].Document.GetLineByNumber(lines[i]).EndOffset;
+					   	int off = edits[_index].Document.GetLineByNumber(ml).Offset;
+					   	int leng = edits[_index].Document.GetLineByNumber(ml).EndOffset;
 					   	string line = "";
 					   	
 					   	//holds words and numbers for parsing
@@ -768,7 +768,7 @@ namespace Isotope
 											
 											if(fid == lineVals.Count) //open equal sign
 											{
-												System.Windows.Forms.MessageBox.Show("Error: Equal signs must always be followed by numerical values. On line number: " + i 
+												System.Windows.Forms.MessageBox.Show("Error: Equal signs must always be followed by numerical values. On line number: " + ml 
 								                                     + ", Faulty Text: " + line,
 				                						"Syntax Error", 
 				               							System.Windows.Forms.MessageBoxButtons.OK, 
@@ -818,7 +818,7 @@ namespace Isotope
 												}
 												catch(FormatException)//not a number so open equal sign
 												{
-													System.Windows.Forms.MessageBox.Show("Error: Equal signs must always be followed by numerical values. On line number: " + i 
+													System.Windows.Forms.MessageBox.Show("Error: Equal signs must always be followed by numerical values. On line number: " + ml 
 								                                     + ", Faulty Text: " + line,
 				                						"Syntax Error", 
 				               							System.Windows.Forms.MessageBoxButtons.OK, 
@@ -859,7 +859,7 @@ namespace Isotope
 							{//line does not begin with a command. spaces are filtered out
 								
 								//show error box with line number explaining that line must begin with command
-								System.Windows.Forms.MessageBox.Show("Lines must always begin with commands or a comment mark. Error on line number: " + i 
+								System.Windows.Forms.MessageBox.Show("Lines must always begin with commands or a comment mark. Error on line number: " + ml 
 								                                     + ", Faulty Text: " + line,
 				                						"Syntax Error", 
 				               							System.Windows.Forms.MessageBoxButtons.OK, 
@@ -870,6 +870,7 @@ namespace Isotope
 							
 						}
 					
+					   	inc++;
 					
 				}
 				if(safe) // if no errors
