@@ -54,7 +54,6 @@
     "id": 5,
     "desc":"Waits until driving completes",
     "subs" : [
-		{"name":"drivecmd", "id":0,"desc": "which drive command to wait for"}
 		]
   },
 	{
@@ -94,12 +93,11 @@
   },
   {
     "name":"wait_for",
-    "id": 10,
+    "id": 10,S
     "desc":"Waits for a condition to be true",
     "subs" : [
-			{"name":"condition","id":2,"desc":"1=one_tote, 2=two_totes, 3=three_totes, 4=past_distance"},
-			{"name":"x","id":0,"desc":"amount of x distance to wait for"},
-			{"name":"y","id":1,"desc":"amount of y distance to wait for"},
+			{"name":"condition","id":2,"desc":"1=one_tote, 2=two_totes, 3=three_totes, 4=past_y_dist, 5=past_x_dist"},
+			{"name":"dist","id":0,"desc":"distance target"},
 			{"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
 		]
   },
@@ -138,6 +136,7 @@
 {"alias":"three_totes", "represents":3},
 {"alias":"auto", "represents":0},
 {"alias":"manual", "represents":1},
-{"alias":"distance", "represents":4},
+{"alias":"past_y_dist", "represents":4},
+{"alias":"past_x_dist", "represents":5},
 {"alias":"eject", "represents":2}
 ]
