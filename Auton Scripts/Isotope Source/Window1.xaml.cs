@@ -102,11 +102,13 @@ namespace Isotope
 			CommandBinding cbSave = new CommandBinding(_save, SaveExecuted, SaveCanExecute);
 			CommandBinding cbAll = new CommandBinding(_all, AllExecuted, AllCanExecute);
 			CommandBinding cbHelp = new CommandBinding(_help, HelpExecuted, HelpCanExecute);
+			CommandBinding cbExport = new CommandBinding(_export, ExportExecuted, ExportCanExecute);
 			this.CommandBindings.Add(cbNew);
 			this.CommandBindings.Add(cbOpen);
 			this.CommandBindings.Add(cbSave);
 			this.CommandBindings.Add(cbAll);
 			this.CommandBindings.Add(cbHelp);
+			this.CommandBindings.Add(cbExport);
 			
 			KeyGesture kgNew = new KeyGesture(Key.N, ModifierKeys.Control);
     		InputBinding ibNew = new InputBinding(_new, kgNew);
@@ -116,14 +118,16 @@ namespace Isotope
     		InputBinding ibSave = new InputBinding(_save, kgSave);
     		KeyGesture kgAll = new KeyGesture(Key.S, ModifierKeys.Control | ModifierKeys.Shift);
     		InputBinding ibAll = new InputBinding(_all, kgAll);
-    		KeyGesture kgHelp = new KeyGesture(Key.F1, ModifierKeys.Control | ModifierKeys.Shift);
-    		InputBinding ibHelp = new InputBinding(_help, kgAll);
+    		KeyGesture kgHelp = new KeyGesture(Key.F1);
+    		InputBinding ibHelp = new InputBinding(_help, kgHelp);
+    		KeyGesture kgExport = new KeyGesture(Key.E, ModifierKeys.Control | ModifierKeys.Shift);
+    		InputBinding ibExport = new InputBinding(_export, kgExport);
     		this.InputBindings.Add(ibNew);
     		this.InputBindings.Add(ibOpen);
     		this.InputBindings.Add(ibSave);
     		this.InputBindings.Add(ibAll);
     		this.InputBindings.Add(ibHelp);
-			
+			this.InputBindings.Add(ibExport);
 			
 			if(caller!="")
 			{
