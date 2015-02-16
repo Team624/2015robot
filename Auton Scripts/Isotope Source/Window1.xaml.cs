@@ -728,7 +728,7 @@ namespace Isotope
 							
 							if(lineVals.Count>0)
 							{
-							if(lineVals[0].Equals(_ow.commands[ii].Commnd.ToString()))
+							if(lineVals[0].Equals(_ow.commands[ii].Commnd))
 							{
 								//put all associated sub commands into a list
 								List<SubCommands> scs = new List<SubCommands>();
@@ -804,7 +804,7 @@ namespace Isotope
 													}
 													if(flag)
 													{
-														d = Convert.ToDouble(Convert_Str(lineVals[fid]));
+														d = Convert.ToDouble(lineVals[fid]);
 													}
 													
 													if(d!=0)

@@ -120,6 +120,13 @@
 			{"name":"can","id":1,"desc":"0=no 1=yes"},
 		]
   },
+  {
+    "name":"resetEncoders",
+    "id": 13,
+    "desc":"Resets Encoders",
+    "subs" : [
+		]
+  },
   
 {"alias":"no", "represents":0},
 {"alias":"yes", "represents":1},

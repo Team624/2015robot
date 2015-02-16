@@ -6,9 +6,9 @@
 	Title="Isotope"
 	Closing="WindowClosing"
 	Drop="file_drop"
-	ResizeMode="CanMinimize"
 	Width="633"
-	Height="464">
+	Height="464"
+	ResizeMode="CanResize">
 	<Window.CommandBindings>
 		<CommandBinding
 			Command="{x:Static commands:Window1._new}"
@@ -136,7 +136,6 @@
 							Height="16" />
 					</MenuItem.Icon>
 				</MenuItem>
-				
 			</MenuItem>
 			<MenuItem
 				Header="Help">
@@ -217,7 +216,6 @@
 						Source="Resources\Run.ico" />
 				</StackPanel>
 			</Button>
-			
 			<!-- 	<Button
 				Grid.Column="0"
 				Grid.Row="0"
