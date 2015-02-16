@@ -53,6 +53,10 @@
 			Key="S"
 			Modifiers="Ctrl+Shift" />
 		<KeyBinding
+			Command="{x:Static commands:Window1._export}"
+			Key="E"
+			Modifiers="Ctrl+Shift" />
+		<KeyBinding
 			Command="{x:Static commands:Window1._help}"
 			Key="F1" />
 	</Window.InputBindings>

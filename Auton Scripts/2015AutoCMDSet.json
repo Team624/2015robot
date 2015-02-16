@@ -16,7 +16,9 @@
       {"name":"y","id":1, "desc":"distance to drive (in feet) positive (+) is forwards, negative (-) is backwards  (Distances are from last encoder reset)"},
       {"name":"heading", "id":2, "desc":"angle to steer toward while driving (clockwise is positive, 0 = straight)"},
 	  {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"},
-	  {"name":"async", "id":4, "desc":"Return immediately? (0=No, 1=Yes)"}
+	  {"name":"async", "id":4, "desc":"Return immediately? (0=No, 1=Yes)"},
+	  {"name":"xspeed", "id":5, "desc":"X Min and Max Speed"},
+	  {"name":"yspeed", "id":6, "desc":"Y Min and Max Speed"}
     ]
   },
   {
@@ -38,15 +40,6 @@
 		{"name":"align", "id":1,"desc":"Determine Alignment (0=Idle, 1=In, 2=Out, 3=Left, 4=Right)"},
 		{"name":"closed","id":2, "desc": "Close the Rollers? (0=No, 1=Yes)"},
 		{"name":"auto_cmd", "id":3,"desc":"Set Auto State (1=Grab, 0=Idle, 2=Eject)"}
-    ]
-  },
-  {
-    "name":"tote_drive",
-    "id": 4,
-    "desc":"Transfers execution to the specified command index based on conditions",
-    "subs" : [
-		{"name":"speed", "id":0,"desc": "How fast to go to the tote"},
-		{"name":"maxTime","id":3, "desc": "0 = forever"}
     ]
   },
 	{

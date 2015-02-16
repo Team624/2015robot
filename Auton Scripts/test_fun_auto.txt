@@ -1,7 +1,7 @@
 ﻿set_count totes=1 can=0
 set_rollers mode=manual closed=yes align=right
 wait maxTime=2000
-drive y=4.75 async=1
+drive y=4.75 async=1 xspeed=.4 yspeed=.4
 ;wait_for condition=past_y_dist dist=1.25
 set_rollers mode=manual closed=no align=right
 wait_for_drive
@@ -9,7 +9,7 @@ set_rollers mode=auto auto_cmd=1
 set_elevator mode=auto command=one_tote
 wait_for condition=two_totes
 drop_stack
-drive y=12 async=1
+drive y=12 async=1 xspeed=.4 yspeed=.4
 set_rollers mode=manual closed=yes align=right
 wait_for condition=past_y_dist dist=7.5
 set_rollers mode=manual closed=no align=right
@@ -20,10 +20,12 @@ set_elevator mode=auto command=one_tote
 wait_for condition=three_totes
 set_rollers mode=manual closed=no
 resetEncoders
-drive heading=45
+//changed heading to 60 from 45 2.15 @ build
+drive heading=60 xspeed=.6 yspeed=.6
 resetEncoders
-drive y=10 heading=45
+//changed heading to 60 from 45 2.15 @ build
+drive y=10 heading=60 xspeed=.8 yspeed=.8
 drop_stack
 wait maxTime=500
 resetEncoders
-drive y=-4 heading=0
+drive y=-4 heading=0 xspeed=.6 yspeed=.6
