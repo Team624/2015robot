@@ -1,8 +1,29 @@
 ﻿set_count totes=1 can=0
 set_rollers mode=manual closed=yes align=right
-drive y=6 async=1
-wait_for condition=distance y=3
+wait maxTime=2000
+drive y=4.75 async=1
+;wait_for condition=past_y_dist dist=1.25
 set_rollers mode=manual closed=no align=right
 wait_for_drive
-set_rollers mode=auto
-pickup hold_low=yes
+set_rollers mode=auto auto_cmd=1
+set_elevator mode=auto command=one_tote
+wait_for condition=two_totes
+drop_stack
+drive y=12 async=1
+set_rollers mode=manual closed=yes align=right
+wait_for condition=past_y_dist dist=7.5
+set_rollers mode=manual closed=no align=right
+set_elevator mode=auto command=idle
+wait_for_drive
+set_rollers mode=auto auto_cmd=1
+set_elevator mode=auto command=one_tote
+wait_for condition=three_totes
+set_rollers mode=manual closed=no
+resetEncoders
+drive heading=45
+resetEncoders
+drive y=10 heading=45
+drop_stack
+wait maxTime=500
+resetEncoders
+drive y=-4 heading=0
