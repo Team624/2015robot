@@ -89,7 +89,7 @@
     "id": 10,
     "desc":"Waits for a condition to be true",
     "subs" : [
-			{"name":"condition","id":2,"desc":"1=one_tote, 2=two_totes, 3=three_totes, 4=past_y_dist, 5=past_x_dist"},
+			{"name":"condition","id":2,"desc":"1=one_tote, 2=two_totes, 3=three_totes, 4=past_y_dist, 5=past_x_dist, 6=elevator_ping_detect"},
 			{"name":"dist","id":0,"desc":"distance target"},
 			{"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
 		]
@@ -138,5 +138,6 @@
 {"alias":"manual", "represents":1},
 {"alias":"past_y_dist", "represents":4},
 {"alias":"past_x_dist", "represents":5},
+{"alias":"elevator_ping_detect", "represents":6},
 {"alias":"eject", "represents":2}
 ]
