@@ -1,0 +1,31 @@
+﻿yaw_zero angle=90
+set_elevator hold_low=yes
+set_rollers mode=manual closed=yes align=right
+wait maxTime=250
+set_rollers mode=manual closed=yes align=in
+wait_for condition=elevator_ping_detect
+set_count can=1
+drive y=2 async=yes heading=90 yspeed=.4
+set_rollers mode=auto auto_cmd=1
+wait_for condition=elevator_ping_detect
+set_elevator mode=auto command=one_tote
+drive heading=270 yspeed=.4
+resetEncoders
+set_drive y=.4
+wait_for condition=past_y_dist dist=4
+set_rollers mode=auto auto_cmd=1
+wait_for condition=elevator_ping_detect
+store_can store=yes
+set_elevator mode=auto command=one_tote
+set_rollers mode=manual closed=yes align=right
+wait_for condition=past_y_dist dist=7.75
+set_rollers mode=manual closed=no align=right
+set_rollers mode=auto auto_cmd=1
+wait_for condition=elevator_ping_detect
+set_rollers mode=manual closed=yes align=idle
+set_elevator mode=auto command=idle hold_low=yes
+set_drive heading=330 yspeed=0.4
+resetEncoders
+drive y=10.5 yspeed=.5
+drop_stack
+drive y=-2 yspeed=.4

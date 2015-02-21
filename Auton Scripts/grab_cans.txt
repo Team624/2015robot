@@ -1,0 +1,6 @@
+﻿yaw_zero angle = 180
+drive y=-.5 yspeed=.5 async=yes
+grab_cans grab=yes
+wait_for_drive
+drive y=7 yspeed=.8
+grab_cans grab=no
