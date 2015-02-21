@@ -120,7 +120,22 @@
     "subs" : [
 		]
   },
-  
+  {
+    "name":"yaw_zero",
+    "id": 14,
+    "desc":"Sets Yaw Orientation",
+    "subs" : [
+		{"name":"angle","id":0,"desc":"Angle to Zero at"}
+		]
+  },
+  {
+    "name":"grab_cans",
+    "id": 15,
+    "desc":"Grabs Cans Off of Step",
+    "subs" : [
+		{"name":"grab","id":0,"desc":"0=no, 1=yes"}
+		]
+  },
 {"alias":"no", "represents":0},
 {"alias":"yes", "represents":1},
 {"alias":"forever", "represents":0},
