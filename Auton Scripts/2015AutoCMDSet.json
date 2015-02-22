@@ -39,7 +39,8 @@
 		{"name":"mode", "id":0,"desc":"0=Auto, 1= Manual"},
 		{"name":"align", "id":1,"desc":"Determine Alignment (0=Idle, 1=In, 2=Out, 3=Left, 4=Right)"},
 		{"name":"closed","id":2, "desc": "Close the Rollers? (0=No, 1=Yes)"},
-		{"name":"auto_cmd", "id":3,"desc":"Set Auto State (1=Grab, 0=Idle, 2=Eject)"}
+		{"name":"auto_cmd", "id":3,"desc":"Set Auto State (1=Grab, 0=Idle, 2=Eject)"},
+		{"name":"override_speed", "id":4, "desc":"Set Override Speed"}
     ]
   },
 	{
