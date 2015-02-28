@@ -26,10 +26,10 @@ wait_for condition=past_y_dist dist=8.25
 set_rollers mode=manual closed=no align=right
 set_elevator mode=auto command=one_tote
 wait_for_drive
-wait maxTime=750
-set_rollers mode=auto auto_cmd=1
+;wait maxTime=750
 drive y=12 yspeed=0.3 heading=-90
 wait_for_drive
+set_rollers mode=manual closed=yes align=in
 wait_for condition=elevator_ping_detect
 set_rollers mode=manual closed=yes align=idle
 set_elevator mode=manual
@@ -43,7 +43,7 @@ set_elevator mode=auto command=idle hold_low=yes
 set_rollers mode=manual closed=no align=out
 wait_for_drive
 resetEncoders
-drive y=-2 yspeed=.6 heading=-30
+drive y=-1.5 yspeed=.6 heading=-30
 //changed heading to 60 from 45 2.15 @ build
 ;drive y=10 heading=60 xspeed=.8 yspeed=.8
 ;drop_stack
