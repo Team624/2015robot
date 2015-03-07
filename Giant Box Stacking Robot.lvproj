@@ -22,6 +22,7 @@
 		</Item>
 		<Item Name="Image Display.vi" Type="VI" URL="../Robot Code/Vision/Image Display.vi"/>
 		<Item Name="Pot Data.ctl" Type="VI" URL="../Robot Code/Sensors/Pot Data.ctl"/>
+		<Item Name="Draw Feeder Overlay.vi" Type="VI" URL="../Robot Code/Vision/Draw Feeder Overlay.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
