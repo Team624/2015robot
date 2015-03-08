@@ -455,8 +455,8 @@ namespace Isotope
 		private void dropOpen(string file)
 		{
 			// Create text.
-            try
-            {
+           try
+           {
             	if((Path.GetExtension(file)) == ".txt")
             	{
             		names.Add(file);
@@ -483,7 +483,7 @@ namespace Isotope
             			addTab(Path.GetFileName(file), false);
             		}
             	}
-            }
+           	}
             catch (SecurityException ex)
             {
                 // The user lacks appropriate permissions to read files, discover paths, etc.
@@ -510,7 +510,7 @@ namespace Isotope
 								      "CSV Import Error",
 								      System.Windows.Forms.MessageBoxButtons.OK,
 								      System.Windows.Forms.MessageBoxIcon.Error);
-            	}
+            	} 
             } 
 			
 		}

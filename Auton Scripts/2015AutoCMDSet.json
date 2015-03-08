@@ -81,8 +81,9 @@
     "desc":"Sets Elevator Stuff",
     "subs" : [
 		{"name":"mode","id":0,"desc":"0=auto, 1=manual"},
-		{"name":"command","id":1,"desc":"0=idle, 1=one_tote, 2=two_totes, 3=three_totes"},
-		{"name":"hold_low", "id":2,"desc":"0 = no 1=yes"}
+		{"name":"command","id":1,"desc":"0=idle, 1=one_tote, 2=two_totes, 3=three_totes 4=can"},
+		{"name":"hold_low", "id":2,"desc":"0 = no 1=yes"},
+		{"name":"force", "id":3,"desc":"0 = no 1=yes"}
 		]
   },
   {
@@ -150,6 +151,7 @@
 {"alias":"one_tote", "represents":1},
 {"alias":"two_totes", "represents":2},
 {"alias":"three_totes", "represents":3},
+{"alias":"load_can", "represents":4},
 {"alias":"auto", "represents":0},
 {"alias":"manual", "represents":1},
 {"alias":"past_y_dist", "represents":4},

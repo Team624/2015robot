@@ -1,7 +1,6 @@
 ﻿yaw_zero angle=-90
 set_elevator mode=manual
 set_rollers mode=manual closed=yes align=right
-pickup
 //set_count totes=1 can=0
 wait maxTime=500
 set_drive y=0.4 heading=-90
