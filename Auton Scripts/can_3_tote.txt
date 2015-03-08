@@ -1,0 +1,16 @@
+﻿yaw_zero angle=90
+set_elevator mode=manual
+set_rollers mode=manual closed=yes align=right
+wait maxTime=700
+set_rollers mode=manual closed=yes align=in
+drive y=4 heading=90 yspeed=.4
+set_rollers mode=manual closed=no align=idle
+wait_for condition=past_y_dist dist=.25
+set_rollers mode=manual closed=no align=in
+wait_for condition=past_y_dist dist=1
+//Figure this out vvv
+set_elevator mode=manual command=two_totes
+//Figure this out ^^^
+wait_for condition=past_y_dist dist=3
+set_rollers mode=manual closed=yes align=in
+wait_for_drive
