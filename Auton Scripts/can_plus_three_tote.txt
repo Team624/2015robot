@@ -3,14 +3,17 @@ set_elevator mode=manual
 set_rollers mode=manual closed=yes align=right
 wait maxTime=700
 set_rollers mode=manual closed=yes align=in
-drive y=4 heading=90 yspeed=.4
-set_rollers mode=manual closed=no align=idle
-wait_for condition=past_y_dist dist=.25
+drive y=1.5 heading=90 yspeed=.4 async=yes
+wait_for condition=past_y_dist dist=.5
 set_rollers mode=manual closed=no align=in
-wait_for condition=past_y_dist dist=1
-//Figure this out vvv
 set_elevator mode=auto command=load_can force=yes
-//Figure this out ^^^
-wait_for condition=past_y_dist dist=3
+wait_for_drive
+set_elevator mode=auto command=idle force=no
 set_rollers mode=manual closed=yes align=in
 wait_for_drive
+set_elevator mode=auto command=one_tote force=no
+wait maxTime=5000
+set_elevator mode=auto command=idle force=no
+resetEncoders
+drive heading=-90 yspeed=.3
+resetEncoders
