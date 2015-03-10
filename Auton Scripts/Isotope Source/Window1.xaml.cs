@@ -533,7 +533,7 @@ namespace Isotope
 			var reader = new StreamReader(File.OpenRead(file));
 			int r = 0;
         
-			if(rows > 0)
+			if(rows > 1)
 			{
         	while (r<=rows)
         	{
