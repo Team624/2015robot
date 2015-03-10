@@ -83,7 +83,8 @@
 		{"name":"mode","id":0,"desc":"0=auto, 1=manual"},
 		{"name":"command","id":1,"desc":"0=idle, 1=one_tote, 2=two_totes, 3=three_totes 4=can"},
 		{"name":"hold_low", "id":2,"desc":"0 = no 1=yes"},
-		{"name":"force", "id":3,"desc":"0 = no 1=yes"}
+		{"name":"force", "id":3,"desc":"0 = no 1=yes"},
+		{"name":"idle_set", "id":4,"desc":"0=tote_load_height 1=can_load_height"},
 		]
   },
   {
@@ -157,5 +158,7 @@
 {"alias":"past_y_dist", "represents":4},
 {"alias":"past_x_dist", "represents":5},
 {"alias":"elevator_ping_detect", "represents":6},
+{"alias":"tote_load_height", "represents":0},
+{"alias":"can_load_height", "represents":1},
 {"alias":"eject", "represents":2}
 ]
