@@ -523,10 +523,10 @@ namespace Isotope
 		private void Import_CSV(string file)
 		{
 			OptionsWindow _ow = new OptionsWindow();
-			getIndex();
+			//getIndex();
 			
 			char delimiter = ','; //comma delimited csv
-			int rows = getBiggestSubID(); //rows in command set
+			int rows = getBiggestSubID()+1; //rows in command set
 			string[][] csv_in = new string[rows+1][]; //jagged array of csv input
 			List<string> text = new List<string>(); //list of text that will be put into the textbox
 			
@@ -535,7 +535,7 @@ namespace Isotope
         
 			if(rows > 0)
 			{
-        	while (!reader.EndOfStream)
+        	while (r<=rows)
         	{
             	var line = reader.ReadLine();
             	var values = line.Split(delimiter);
@@ -544,8 +544,15 @@ namespace Isotope
             	csv_in[r] = values;
             	
             	r++;
+        	}/*
+        	foreach(var row in csv_in)
+        	{
+        		foreach(var rowz in row)
+        		{
+        			text.Add(rowz);
+        		}
         	}
-        	
+        	*/
         	for(int i=0; i<csv_in[0].Length; i++)
 			{
 				string c = "";
@@ -648,7 +655,7 @@ namespace Isotope
 				List<int> lines = getMeaningfulLines();
 				List<int> lins = getMeaninglessLines();//index all lines that do not start with comments
 				int totalLines = edits[_index].LineCount; //count total lines to read
-				int rows = getBiggestSubID()+1; //count subcommand rows
+				int rows = getBiggestSubID()+1; //count subcommand rows //+1 for command id
 				int inc = 0, ink = 0; //iteration variables for meaningful lines array
 				string delimiter = ","; //comma delimited csv
 				bool safe = true; //stays true if no errors
@@ -908,7 +915,7 @@ namespace Isotope
 						if(complete)
 						{
 						//export done. tell user
-						System.Windows.Forms.MessageBox.Show("Export Complete! ",
+						System.Windows.Forms.MessageBox.Show("Export Complete!",
 				                			"Export Complete", 
 				               				System.Windows.Forms.MessageBoxButtons.OK, 
 				                			System.Windows.Forms.MessageBoxIcon.Information);
@@ -1389,6 +1396,7 @@ namespace Isotope
 			{
 				save_tabs(tabsaver);
 			}
+			SaveAll();
 			Properties.RealSettings.Default.Save();
 			Environment.Exit(0);
 		}
