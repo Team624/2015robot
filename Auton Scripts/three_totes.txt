@@ -37,13 +37,13 @@ resetEncoders
 drive heading=-30 yspeed=0.4
 resetEncoders
 //changed heading to 60 from 45 2.15 @ build
-drive heading=-30 y=10.75 yspeed=.6 async=1
+drive heading=-30 y=11 yspeed=.6 async=1
 wait_for condition=past_y_dist dist=1 
 set_elevator mode=auto command=idle hold_low=yes
 set_rollers mode=manual closed=no align=out
 wait_for_drive
 resetEncoders
-drive y=-1.5 yspeed=.6 heading=-30
+drive y=-1.25 yspeed=.6 heading=-30
 //changed heading to 60 from 45 2.15 @ build
 ;drive y=10 heading=60 xspeed=.8 yspeed=.8
 ;drop_stack
