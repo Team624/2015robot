@@ -30,7 +30,7 @@ void loop() {
 //{
 	if(gameState==MODE_TELEOP)
 	{
-		if(unload==0)
+		/*if(unload==0)
 		{
 			if(newTote)
 			{
@@ -48,7 +48,8 @@ void loop() {
 		else
 		{
 			bouncelaser();
-		}
+		}*/
+		uprights();
 	}
 	else if(gameState==MODE_AUTO)
 	{
@@ -193,6 +194,70 @@ void toteCount()
 	//strip.setPixelColor(i+5,0);
 	strip.show();
 	
+}
+
+void uprights()
+{
+	//STABILIZER
+	if(stabilizer)
+	{
+		for(uint16_t i=strip.numPixels(); i>4*strip.numPixels()/5; i--)
+		{
+			strip.setPixelColor(i,strip.Color(0,0,255));
+		}
+	}
+	
+	//ELEVATOR
+	if(elevator=AUTO)
+	{
+		for(uint16_t iii=0; iii<elevator; iii++)
+		{
+			strip.setPixelColor(iii,strip.Color(0,255,0));
+		}
+	}
+	else if(elevator=SAFE)
+	{
+		for(uint16_t iii=0; iii<elevator; iii++)
+		{
+			strip.setPixelColor(iii,strip.Color(255,255,0));
+		}
+	}
+	else
+	{
+		for(uint16_t iii=0; iii<elevator; iii++)
+		{
+			strip.setPixelColor(iii,strip.Color(255,0,0));
+		}
+	}
+	
+	//FINGER
+	for(uint16_t f=finger; f<finger+10;f++)
+	{
+		strip.setPixelColor(f,strip.Color(0,255,0));
+	}
+	
+	//ROLLERS
+	if(rollers=AUTO)
+	{
+		for(uint16_t ii=strip.numPixels(); ii<strip.numPixels()/5; ii++)
+		{
+			strip.setPixelColor(ii,strip.Color(0,255,0));
+		}
+	}
+	else if(rollers=SAFE)
+	{
+		for(uint16_t ii=strip.numPixels(); ii<strip.numPixels()/5; ii++)
+		{
+			strip.setPixelColor(ii,strip.Color(255,255,0));
+		}
+	}
+	else
+	{
+		for(uint16_t ii=strip.numPixels(); ii<strip.numPixels()/5; ii++)
+		{
+			strip.setPixelColor(ii,strip.Color(255,0,0));
+		}
+	}
 }
 
 void strobe()
