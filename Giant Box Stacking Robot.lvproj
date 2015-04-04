@@ -1307,9 +1307,6 @@ AddOutputFilter chunkFilter
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Copy of Copy of FRC Robot Boot-up Deployment" Type="{69A947D5-514E-4E75-818E-69657C0547D8}">
-				<Property Name="AB_Class_Path" Type="Path">/C/Program Files (x86)/National Instruments/LabVIEW 2014/vi.lib/AppBuilder/AB_Classes/RTEXE/AB_RTEXE.lvclass</Property>
-				<Property Name="AB_Temp_Project_Path" Type="Path">/C/Users/team624/Desktop/2015robot/Giant Box Stacking Robot.lvproj</Property>
-				<Property Name="AB_UIClass_Path" Type="Path">/C/Program Files (x86)/National Instruments/LabVIEW 2014/vi.lib/AppBuilder/AB_Classes/Build/UI/AB_UI_Frmwk_Build.lvclass</Property>
 				<Property Name="App_INI_aliasGUID" Type="Str">{3F62A7B0-58DF-4E3D-826C-5528C160A10B}</Property>
 				<Property Name="App_INI_GUID" Type="Str">{60F995C4-742E-4974-95FD-C0704EAD9909}</Property>
 				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
@@ -1410,7 +1407,7 @@ AddOutputFilter chunkFilter
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{6782B190-04E1-4A41-93AB-3F357B35791E}</Property>
 				<Property Name="Bld_targetDestDir" Type="Path">/home/lvuser/natinst/bin</Property>
-				<Property Name="Bld_version.build" Type="Int">45</Property>
+				<Property Name="Bld_version.build" Type="Int">46</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">startup.rtexe</Property>
 				<Property Name="Destination[0].path" Type="Path">/home/lvuser/natinst/bin/startup.rtexe</Property>
