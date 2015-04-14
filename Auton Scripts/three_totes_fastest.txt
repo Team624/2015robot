@@ -1,4 +1,5 @@
 ﻿yaw_zero angle=-90
+wait_for condition=elev_zeroed
 set_elevator mode=manual
 set_rollers mode=manual closed=yes align=right
 //set_count totes=1 can=0

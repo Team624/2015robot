@@ -2,6 +2,7 @@
 set_elevator mode=manual idle_set=can_load_height
 set_rollers mode=manual closed=yes align=right
 wait maxTime=700
+wait_for condition=elev_zeroed
 set_rollers mode=manual closed=yes align=in
 drive y=1.25 heading=90 yspeed=.25 async=yes
 wait_for condition=past_y_dist dist=.125
