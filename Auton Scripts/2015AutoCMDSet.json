@@ -85,6 +85,7 @@
 		{"name":"hold_low", "id":2,"desc":"0 = no 1=yes"},
 		{"name":"force", "id":3,"desc":"0 = no 1=yes"},
 		{"name":"idle_set", "id":4,"desc":"0=tote_load_height 1=can_load_height"},
+		{"name":"eject", "id":5,"desc":"0=no 1=yes"},
 		]
   },
   {

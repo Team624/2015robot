@@ -1,7 +1,0 @@
-﻿yaw_zero angle=180
-drive y=-.5 yspeed=.5 async=yes heading=180
-grab_cans grab=yes
-wait_for_drive
-wait maxTime=500
-drive y=7 yspeed=.4 heading=180
-grab_cans grab=no
