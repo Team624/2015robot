@@ -140,6 +140,14 @@
 		{"name":"grab","id":0,"desc":"0=no, 1=yes"}
 		]
   },
+  {
+    "name":"pike",
+    "id": 16,
+    "desc":"Grabs Cans Off the floor",
+    "subs" : [
+		{"name":"action","id":0,"desc":"0=idle, 1=lift, 2=drop"}
+		]
+  },
 {"alias":"no", "represents":0},
 {"alias":"yes", "represents":1},
 {"alias":"forever", "represents":0},
@@ -163,5 +171,7 @@
 {"alias":"can_load_height", "represents":1},
 {"alias":"elev_zeroed", "represents":0},
 {"alias":"eject", "represents":2},
+{"alias":"lift", "represents":1},
+{"alias":"drop", "represents":2},
 {"alias":"forward_past_y_dist", "represents":7}
 ]
