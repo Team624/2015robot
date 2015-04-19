@@ -148,6 +148,15 @@
 		{"name":"action","id":0,"desc":"0=idle, 1=lift, 2=drop"}
 		]
   },
+  {
+    "name":"fast_pivot",
+    "id": 17,
+    "desc":"pivots... possibly quickly",
+    "subs" : [
+      {"name":"heading", "id":2, "desc":"angle to steer toward while driving (clockwise is positive, 0 = straight)"},
+      {"name":"pivot_speed","id":1, "desc":"gyro turny speed"}
+		]
+  },
 {"alias":"no", "represents":0},
 {"alias":"yes", "represents":1},
 {"alias":"forever", "represents":0},
