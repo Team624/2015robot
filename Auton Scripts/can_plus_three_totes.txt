@@ -7,10 +7,10 @@ wait maxTime=350
 set_rollers mode=manual align=right closed=yes override_speed=0.6
 wait maxTime=350
 set_rollers mode=manual align=in closed=yes override_speed=1
-drive x=0 y=1.5 heading=90 async=yes yspeed=0.4 
+drive x=0 y=1.25 heading=90 async=yes yspeed=0.4 
 wait_for dist=.2 condition=past_y_dist
 set_rollers closed=no mode=manual
-wait_for dist=0.5 condition=past_y_dist
+wait_for dist=0.25 condition=past_y_dist
 set_elevator mode=auto command=load_can force=yes 
 wait_for condition=elevator_ping_detect
 set_rollers mode=manual align=idle
@@ -34,14 +34,15 @@ set_elevator mode=0 command=0 hold_low=0 force=0 idle_set=0
 wait_for dist=1.25 condition=past_y_dist maxTime=0 
 set_rollers mode=manual align=in closed=yes
 wait_for dist=3.25 condition=past_y_dist maxTime=0
-set_rollers mode=manual align=right closed=yes override_speed=0.75
+set_rollers mode=manual align=right closed=yes override_speed=0.7
 wait_for dist=4.5 condition=forward_past_y_dist
-set_rollers mode=manual align=right closed=no override_speed=0.75
+set_rollers mode=manual align=right closed=no override_speed=0.7
 wait_for dist=5 condition=forward_past_y_dist
 set_elevator mode=auto command=one_tote
 wait_for condition=elevator_ping_detect
 store_can store=yes
 wait_for_drive
+drive y=8.25 heading=-90 async=yes yspeed=0.4
 set_rollers mode=manual align=in closed=yes
 wait maxTime=750
 set_elevator mode=auto command=idle 
