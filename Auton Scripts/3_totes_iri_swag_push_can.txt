@@ -1,21 +1,17 @@
 ﻿yaw_zero angle=-90
 wait_for condition=elev_zeroed
 set_elevator mode=auto command=idle
-set_rollers mode=manual closed=yes align=idle override_speed=0.5
+set_rollers mode=manual closed=yes align=idle
+wait maxTime=500
 //set_count totes=1 can=0
 set_rollers mode=manual closed=yes align=right override_speed=0.5
 ;fast_pivot heading=-80
 ;fast_pivot heading=-90
-wait maxTime=1000
-set_drive y=0.4 heading=-90
-wait_for condition=past_y_dist dist=1
+wait maxTime=500
+set_drive y=0.3 heading=-90
+wait_for condition=past_y_dist dist=1.75
 ;open to push can 1
 set_rollers mode=manual closed=no align=right override_speed=0.5
-;get elevator up for tote 2
-;set_elevator mode=auto command=idle
-;drive at 0.3 speed, and...
-set_drive y=0.4 heading=-90
-;wait until past 4.5 ft
 wait_for condition=past_y_dist dist=4.25
 ;close the rollers and intake manually
 set_rollers mode=manual closed=yes align=in
@@ -29,7 +25,7 @@ wait_for_drive
 set_elevator mode=auto command=idle idle_set=two_totes
 store_can store=yes
 ;set_elevator mode=auto command=idle idle_set=three_totes
-wait maxTime=1000
+wait maxTime=1500
 drive y=16 yspeed=0.4 async=yes heading=-90
 ;tote is now in, start turning wheels other way for bin
 set_rollers mode=manual closed=yes align=right override_speed=0.5
@@ -43,7 +39,7 @@ drive y=16 yspeed=0.35 heading=-90 maxTime=2000
 resetEncoders
 drive y=-1.5 yspeed=0.35 async=yes heading=-90
 wait maxTime=200
-set_elevator command=idle idle_set=one_tote
+set_elevator mode=auto command=idle idle_set=one_tote
 set_rollers mode=manual closed=yes align=in
 wait_for_drive
 fast_pivot angle=-30
