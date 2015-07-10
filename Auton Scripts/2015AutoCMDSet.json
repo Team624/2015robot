@@ -166,7 +166,7 @@
     "subs" : [
 		{"name":"store", "id":0,"desc": "0=no, 1=yes"}
 		]
-  }
+  },
 {"alias":"no", "represents":0},
 {"alias":"yes", "represents":1},
 {"alias":"forever", "represents":0},
