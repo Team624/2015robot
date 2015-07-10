@@ -72,7 +72,7 @@
     "desc":"Picks Up a Tote",
     "subs" : [
 		 {"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"},
-		 {"name":"hold_low", "id":2,"desc":"0 = no 1=yes"}, 
+		 {"name":"hold_low", "id":2,"desc":"0 = no 1=yes"}
 		]
   },
   {
@@ -96,7 +96,7 @@
     "subs" : [
 			{"name":"condition","id":2,"desc":"0=elev_zeroed, 1=one_tote, 2=two_totes, 3=three_totes, 4=past_y_dist, 5=past_x_dist, 6=elevator_ping_detect, 7=forward_past_y_dist, 8=elevator_in_position, 9=elevator_higher_than, 10=elevator_lower_than"},
 			{"name":"dist","id":0,"desc":"distance target"},
-			{"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
+			{"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"},
 		    {"name":"height", "id":6, "desc":"elevator height"}
 		]
   },
@@ -107,7 +107,7 @@
     "subs" : [
 			{"name":"x","id":0,"desc":"x speed"},
 			{"name":"y","id":1,"desc":"y speed"},
-			{"name":"heading","id":2,"desc":"gyro heading target"},
+			{"name":"heading","id":2,"desc":"gyro heading target"}
 		]
   }, 
   {
@@ -188,5 +188,5 @@
 {"alias":"forward_past_y_dist", "represents":7},
 {"alias":"elevator_in_position", "represents":8},
 {"alias":"elevator_higher_than", "represents":9},
-{"alias":"elevator_lower_than", "represents":10},
+{"alias":"elevator_lower_than", "represents":10}
 ]

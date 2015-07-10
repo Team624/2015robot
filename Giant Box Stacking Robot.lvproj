@@ -302,6 +302,8 @@
 			<Item Name="Pike Mode.ctl" Type="VI" URL="../Robot Code/Pike/Pike Mode.ctl"/>
 			<Item Name="Pike Indicators.ctl" Type="VI" URL="../Robot Code/Pike/Pike Indicators.ctl"/>
 			<Item Name="624WPI_I2CWrite.vi" Type="VI" URL="../Robot Code/I2C/624WPI_I2CWrite.vi"/>
+			<Item Name="Elevator Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Command.ctl"/>
+			<Item Name="Elevator Control Command.ctl" Type="VI" URL="../Robot Code/Elevator/Elevator Control Command.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="624 2015 Dashboard" Type="EXE">
