@@ -86,7 +86,7 @@
 		{"name":"force", "id":3,"desc":"0 = no 1=yes"},
 		{"name":"idle_set", "id":4,"desc":"0=tote_load_height 1=can_load_height, 5=raw_height"},
 		{"name":"eject", "id":5,"desc":"0=no 1=yes"},
-		{"name":"raw_height", "id":6, "desc":"height for raw_height idle mode"}
+		{"name":"height", "id":6, "desc":"height for raw_height idle mode"}
 		]
   },
   {
@@ -94,9 +94,10 @@
     "id": 10,
     "desc":"Waits for a condition to be true",
     "subs" : [
-			{"name":"condition","id":2,"desc":"0=elev_zeroed, 1=one_tote, 2=two_totes, 3=three_totes, 4=past_y_dist, 5=past_x_dist, 6=elevator_ping_detect, 7=forward_past_y_dist"},
+			{"name":"condition","id":2,"desc":"0=elev_zeroed, 1=one_tote, 2=two_totes, 3=three_totes, 4=past_y_dist, 5=past_x_dist, 6=elevator_ping_detect, 7=forward_past_y_dist, 8=elevator_in_position, 9=elevator_higher_than, 10=elevator_lower_than"},
 			{"name":"dist","id":0,"desc":"distance target"},
 			{"name":"maxTime", "id":3,"desc":"time limit (ms). (0 = forever)"}
+		    {"name":"height", "id":6, "desc":"elevator height"}
 		]
   },
   {
@@ -184,5 +185,8 @@
 {"alias":"eject", "represents":2},
 {"alias":"lift", "represents":1},
 {"alias":"drop", "represents":2},
-{"alias":"forward_past_y_dist", "represents":7}
+{"alias":"forward_past_y_dist", "represents":7},
+{"alias":"elevator_in_position", "represents":8},
+{"alias":"elevator_higher_than", "represents":9},
+{"alias":"elevator_lower_than", "represents":10},
 ]
