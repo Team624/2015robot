@@ -6,8 +6,10 @@
 
 #define FINGER_HEIGHT_PIN A0
 #define MULTIPLEX_PIN A1
+
 #define ROBOT_STATE_PIN 12
 #define ROBOT_STATE_PIN_TWO 22
+#define ROBOT_STATE_PIN_THREE 23 /*???????????*/
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(120, PIN, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel stripz = Adafruit_NeoPixel(120, PINZ, NEO_GRB + NEO_KHZ800);
@@ -28,10 +30,14 @@ void setup() {
 
 }
 
-#define STATE_DISABLED 3
-#define STATE_TELEOP 2
-#define STATE_AUTO 1
-#define STATE_SCORE 0
+#define STATE_TELEOP    0b000
+#define STATE_AUTO      0b001
+#define STATE_SCORE     0b010
+#define STATE_COOP      0b011
+#define STATE_BROWNOUT  0b100
+#define STATE_LOST_COMM 0b101
+#define STATE_FULL      0b110
+#define STATE_DISABLED  0b111
 
 uint16_t finger_height;
 bool elevator_auto;
@@ -49,14 +55,15 @@ void loop() {
   finger_on = (multi_read >> 2) & 1;
   bool state_pin1 = digitalRead(ROBOT_STATE_PIN);
   bool state_pin2 = digitalRead(ROBOT_STATE_PIN_TWO);
-  robot_state = (state_pin1 & 0b1) | ((state_pin2 & 0b1) << 1);
+  bool state_pin3 = digitalRead(ROBOT_STATE_PIN_THREE);
+  robot_state = ((state_pin3 << 2) & 0b1) | ((state_pin2 << 1) & 0b1) | ((state_pin1) & 0b1);
 
   if(old_state!=robot_state)
   {
     first_loop=true;
     stay_white=false;
-      fillStrip(strip.Color(0,0,0),255);
-  fillStripZ(stripz.Color(0,0,0),255);
+    fillStrip(strip.Color(0,0,0),255);
+    fillStripZ(stripz.Color(0,0,0),255);
   }
   old_state=robot_state;
 
@@ -65,11 +72,18 @@ void loop() {
    pixelate();
   } else if (robot_state == STATE_SCORE) {
    rainbowlaser();
-  } else if(robot_state == STATE_TELEOP) {
+  } else if(robot_state == STATE_TELEOP || robot_state == STATE_FULL) {
     fillStrip(strip.Color(0,0,0),255);
   fillStripZ(stripz.Color(0,0,0),255);
     uprights(); 
-  } else {                                                     
+  } else if (robot_state == STATE_LOST_COMM) {
+    fillStrip(strip.Color(255,0,0),255);
+    fillStripZ(stripz.Color(255,0,0),255);
+  } else if (robot_state == STATE_BROWNOUT) {
+    fillStrip(strip.Color(50,20,0),255);
+  } else if (robot_state == STATE_COOP) {
+    coop_rainbowlaser();
+  } else {
 //    rainbow(0); 
   lavalamp();
     //rainbowlaser();
@@ -185,6 +199,71 @@ stripz.show();
 }
 }
 
+void coop_rainbowlaser()
+{
+	uint32_t ii, c, w, r,o,y,g,b,i,v;
+	r=strip.Color(255,0,0);
+	o=strip.Color(255,128,0);
+	y=strip.Color(255,255,0);
+	
+	g=strip.Color(0,255,0);
+	
+	b=strip.Color(0,0,255);
+	ii=strip.Color(128,0,255);
+	v=strip.Color(255,0,255);
+	
+	w=32;
+
+uint32_t iii, cz, wz, rz,oz,yz,gz,bz,iz,vz;
+	rz=stripz.Color(255,0,0);
+	oz=stripz.Color(255,128,0);
+	yz=stripz.Color(255,255,0);
+	
+	gz=stripz.Color(0,255,0);
+	
+	bz=stripz.Color(0,0,255);
+	iii=stripz.Color(128,0,255);
+	vz=stripz.Color(255,0,255);
+	
+if(!stay_white)
+{
+	for(i=strip.numPixels()+w;i>0;i--)
+	{
+                strip.setPixelColor(i,y);
+		strip.setPixelColor(i-4,v);
+		strip.setPixelColor(i-8,ii);
+		strip.setPixelColor(i-12,b);
+		strip.setPixelColor(i-16,g);
+		strip.setPixelColor(i-20,y);
+		strip.setPixelColor(i-24,o);
+		strip.setPixelColor(i-28,r);
+		strip.setPixelColor(i-w,y);
+
+                stripz.setPixelColor(i,y);
+		stripz.setPixelColor(i-4,vz);
+		stripz.setPixelColor(i-8,iii);
+		stripz.setPixelColor(i-12,bz);
+		stripz.setPixelColor(i-16,gz);
+		stripz.setPixelColor(i-20,yz);
+		stripz.setPixelColor(i-24,oz);
+		stripz.setPixelColor(i-28,rz);
+		//stripz.setPixelColor(i-w,strip.Color(120,120,120));
+		
+                strip.show();
+                stripz.show();
+		//delay(15);
+	}
+        stay_white=true;
+}
+else
+{
+fillStrip(y,255);
+fillStripZ(y,255);
+strip.show();
+stripz.show();
+}
+}
+
 void bouncelaser()
 {
 	uint16_t i, c, w;
@@ -237,6 +316,10 @@ void auton()
 
 void uprights()
 {
+  if(robot_state == STATE_FULL) {
+    fillStrip(strip.Color(0, 90, 0), 255);
+    fillStripZ(strip.Color(0, 90, 0), 255);
+  }
 	//STABILIZER
 	if(stabilizer_on)
 	{
@@ -271,7 +354,7 @@ void uprights()
 	{
                 if(finger_on)
                 {
-		  strip.setPixelColor(f,strip.Color(0,255,0));
+                  strip.setPixelColor(f,strip.Color(0,255,0));
                   stripz.setPixelColor(f,stripz.Color(0,255,0));
                 }
                 else
