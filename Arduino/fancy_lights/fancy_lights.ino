@@ -9,7 +9,7 @@
 
 #define ROBOT_STATE_PIN 12
 #define ROBOT_STATE_PIN_TWO 22
-#define ROBOT_STATE_PIN_THREE 23 /*???????????*/
+#define ROBOT_STATE_PIN_THREE 28 /*???????????*/
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(120, PIN, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel stripz = Adafruit_NeoPixel(120, PINZ, NEO_GRB + NEO_KHZ800);
@@ -27,7 +27,7 @@ void setup() {
 
         stripz.begin();
         stripz.show();
-
+        Serial.begin(9600);
 }
 
 #define STATE_TELEOP    0b000
@@ -48,7 +48,7 @@ uint8_t robot_state, old_state, first_loop;
 void loop() {
 
   
-  finger_height = map(analogRead(FINGER_HEIGHT_PIN), 0, 1024, 22, 105); //convert 0-1024 ADC read to 0-127
+  finger_height = map(analogRead(FINGER_HEIGHT_PIN), 0, 1024, 22, 90); //convert 0-1024 ADC read to 0-127
   uint8_t multi_read = analogRead(MULTIPLEX_PIN) >> 7; //grab 3 most significant bits
   elevator_auto = (multi_read & 1);
   stabilizer_on = (multi_read >> 1) & 1;
@@ -56,8 +56,13 @@ void loop() {
   bool state_pin1 = digitalRead(ROBOT_STATE_PIN);
   bool state_pin2 = digitalRead(ROBOT_STATE_PIN_TWO);
   bool state_pin3 = digitalRead(ROBOT_STATE_PIN_THREE);
-  robot_state = ((state_pin3 << 2) & 0b1) | ((state_pin2 << 1) & 0b1) | ((state_pin1) & 0b1);
-
+  Serial.println();
+  Serial.print(state_pin3);
+  Serial.print(state_pin2);
+  Serial.print(state_pin1);
+  robot_state = ((state_pin3 << 2) & 0b100) | ((state_pin2 << 1) & 0b10) | ((state_pin1) & 0b1);
+  Serial.println();
+  Serial.println(robot_state);
   if(old_state!=robot_state)
   {
     first_loop=true;
@@ -317,8 +322,8 @@ void auton()
 void uprights()
 {
   if(robot_state == STATE_FULL) {
-    fillStrip(strip.Color(0, 90, 0), 255);
-    fillStripZ(strip.Color(0, 90, 0), 255);
+    fillStrip(strip.Color(0, 60, 0), 255);
+    fillStripZ(strip.Color(0, 60, 0), 255);
   }
 	//STABILIZER
 	if(stabilizer_on)
