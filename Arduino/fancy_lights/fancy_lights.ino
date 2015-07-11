@@ -85,7 +85,8 @@ void loop() {
     fillStrip(strip.Color(255,0,0),255);
     fillStripZ(stripz.Color(255,0,0),255);
   } else if (robot_state == STATE_BROWNOUT) {
-    fillStrip(strip.Color(50,20,0),255);
+    fillStrip(strip.Color(70,25,0),255);
+    fillStripZ(strip.Color(70,25,0),255);
   } else if (robot_state == STATE_COOP) {
     coop_rainbowlaser();
   } else {

@@ -61,6 +61,6 @@ wait_for condition=past_y_dist dist=4
 set_drive y=0 heading=-30
 wait maxTime=250
 resetEncoders
-set_drive y=-0.75 heading=-30
+;set_drive y=-0.75 heading=-30
 wait maxTime=500
 set_drive y=0 heading=-30
