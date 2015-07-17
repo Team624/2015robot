@@ -55,12 +55,12 @@ resetEncoders
 ;resetEncoders
 set_drive y=1 heading=-30
 wait_for condition=past_y_dist dist=1
-set_elevator mode=auto command=idle idle_set=raw_height height=0 hold_low=yes
+set_elevator mode=auto command=idle idle_set=raw_height height=0 hold_low=yes  eject=yes
 set_rollers mode=manual closed=no align=out override_speed=.75
 wait_for condition=past_y_dist dist=4
 set_drive y=0 heading=-30
 wait maxTime=250
 resetEncoders
-;set_drive y=-0.75 heading=-30
+set_drive y=-0.75 heading=-30
 wait maxTime=500
 set_drive y=0 heading=-30
