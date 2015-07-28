@@ -10,7 +10,7 @@ set_rollers mode=manual closed=yes align=right override_speed=0.5
 ;fast_pivot heading=-80
 ;fast_pivot heading=-90
 // @@@@@@ THIS V USED TO BE 0.3 @@@@@@@
-set_drive y=0.33 heading=-90
+set_drive y=0.35 heading=-90
 wait_for condition=past_y_dist dist=0.75
 ;open to push can 1
 set_rollers mode=manual closed=no align=right override_speed=0.5
