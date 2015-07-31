@@ -1,5 +1,5 @@
 ﻿yaw_zero angle=-90
-force_store store=yes
+;force_store store=yes
 ;store_can store=yes
 wait_for condition=elev_zeroed
 set_elevator mode=auto command=idle
@@ -10,8 +10,8 @@ set_rollers mode=manual closed=yes align=right override_speed=0.5
 ;fast_pivot heading=-80
 ;fast_pivot heading=-90
 // @@@@@@ THIS V USED TO BE 0.3 @@@@@@@
-set_drive y=0.375 heading=-90
-wait_for condition=past_y_dist dist=0.75
+set_drive y=0.35 heading=-90
+wait_for condition=past_y_dist dist=1.25
 ;open to push can 1
 set_rollers mode=manual closed=no align=right override_speed=0.5
 ;get elevator up for tote 2
@@ -53,11 +53,12 @@ wait_for condition=elevator_ping_detect
 set_rollers mode=manual closed=yes align=idle
 wait_for condition=elevator_in_position
 set_elevator mode=auto command=idle idle_set=raw_height height=5
-wait maxTime=100
-drive y=14.8 yspeed=0.33 heading=-90
-wait_for condition=elevator_in_position
-set_drive y=-1 heading=-90
-wait maxTime=150
+;wait maxTime=100
+;drive y=14.8 yspeed=0.3 heading=-90
+;wait_for condition=elevator_in_position
+;set_drive y=-1 heading=-90
+;wait maxTime=150
+;^^^USED TO PUSH CAN
 fast_pivot heading=-30 angle=-30 pivot_speed=1
 resetEncoders
 ;drive heading=-30 yspeed=0.4
